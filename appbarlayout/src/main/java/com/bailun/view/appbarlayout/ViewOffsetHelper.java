@@ -1,8 +1,9 @@
 
-package com.wangjing.test;
+package com.bailun.view.appbarlayout;
+
+import android.view.View;
 
 import androidx.core.view.ViewCompat;
-import android.view.View;
 
 /**
  * Utility helper for moving a {@link View} around using {@link View#offsetLeftAndRight(int)} and

@@ -14,20 +14,21 @@
  * limitations under the License.
  */
 
-package com.wangjing.test;
+package com.bailun.view.appbarlayout;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.math.MathUtils;
-import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.OverScroller;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.math.MathUtils;
+import androidx.core.view.ViewCompat;
 
 public abstract class HeaderBehavior<V extends View> extends ViewOffsetBehavior<V> {
 

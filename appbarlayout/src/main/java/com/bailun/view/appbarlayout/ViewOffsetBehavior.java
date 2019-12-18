@@ -1,11 +1,12 @@
 
 
-package com.wangjing.test;
+package com.bailun.view.appbarlayout;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
 import android.util.AttributeSet;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
 
 public class ViewOffsetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {

@@ -14,22 +14,23 @@
  * limitations under the License.
  */
 
-package com.wangjing.test;
+package com.bailun.view.appbarlayout;
 
 import android.content.Context;
 import android.graphics.Rect;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.math.MathUtils;
-import androidx.core.view.GravityCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.coordinatorlayout.widget.CoordinatorLayout;
-import androidx.coordinatorlayout.widget.CoordinatorLayout.Behavior;
+import androidx.core.math.MathUtils;
+import androidx.core.view.GravityCompat;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import java.util.List;
 
 

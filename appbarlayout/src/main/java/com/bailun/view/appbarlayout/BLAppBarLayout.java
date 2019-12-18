@@ -1,10 +1,6 @@
 
 
-package com.wangjing.test;
-
-import com.google.android.material.R;
-
-import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
+package com.bailun.view.appbarlayout;
 
 import android.animation.ValueAnimator;
 import android.animation.ValueAnimator.AnimatorUpdateListener;
@@ -19,6 +15,13 @@ import android.os.Build;
 import android.os.Build.VERSION_CODES;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.AttributeSet;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Interpolator;
+import android.widget.LinearLayout;
+import android.widget.ListView;
+import android.widget.ScrollView;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
@@ -29,26 +32,18 @@ import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.annotation.RestrictTo;
 import androidx.annotation.VisibleForTesting;
+import androidx.appcompat.content.res.AppCompatResources;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import androidx.core.graphics.drawable.DrawableCompat;
 import androidx.core.math.MathUtils;
 import androidx.core.util.ObjectsCompat;
-import androidx.customview.view.AbsSavedState;
 import androidx.core.view.NestedScrollingChild;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.ViewCompat.NestedScrollType;
 import androidx.core.view.WindowInsetsCompat;
-import androidx.appcompat.content.res.AppCompatResources;
+import androidx.customview.view.AbsSavedState;
 
-import android.util.AttributeSet;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Interpolator;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.ScrollView;
-
-import androidx.coordinatorlayout.widget.CoordinatorLayout;
-
+import com.google.android.material.R;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.shape.MaterialShapeDrawable;
@@ -59,6 +54,8 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
+
+import static androidx.annotation.RestrictTo.Scope.LIBRARY_GROUP;
 
 
 public class BLAppBarLayout extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
@@ -183,7 +180,7 @@ public class BLAppBarLayout extends LinearLayout implements CoordinatorLayout.At
                     this, a.getDimensionPixelSize(R.styleable.AppBarLayout_elevation, 0));
         }
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        if (Build.VERSION.SDK_INT >= VERSION_CODES.O) {
             // In O+, we have these values set in the style. Since there is no defStyleAttr for
             // AppBarLayout at the AppCompat level, check for these attributes here.
             if (a.hasValue(R.styleable.AppBarLayout_android_keyboardNavigationCluster)) {
@@ -1152,8 +1149,8 @@ public class BLAppBarLayout extends LinearLayout implements CoordinatorLayout.At
 
         public Behavior(Context context, AttributeSet attrs) {
             super(context, attrs);
-            TypedArray typedArray = context.obtainStyledAttributes(attrs, com.wangjing.test.R.styleable.BLAppBarLayout);
-            reboundLength = typedArray.getDimensionPixelOffset(com.wangjing.test.R.styleable.BLAppBarLayout_rebound_length, 0);
+            TypedArray typedArray = context.obtainStyledAttributes(attrs, com.bailun.view.appbarlayout.R.styleable.BLAppBarLayout);
+            reboundLength = typedArray.getDimensionPixelOffset(com.bailun.view.appbarlayout.R.styleable.BLAppBarLayout_rebound_length, 0);
             typedArray.recycle();
         }
     }
@@ -1364,7 +1361,7 @@ public class BLAppBarLayout extends LinearLayout implements CoordinatorLayout.At
                 offsetAnimator = new ValueAnimator();
                 offsetAnimator.setInterpolator(AnimationUtils.DECELERATE_INTERPOLATOR);
                 offsetAnimator.addUpdateListener(
-                        new ValueAnimator.AnimatorUpdateListener() {
+                        new AnimatorUpdateListener() {
                             @Override
                             public void onAnimationUpdate(@NonNull ValueAnimator animator) {
                                 setHeaderTopBottomOffset(
